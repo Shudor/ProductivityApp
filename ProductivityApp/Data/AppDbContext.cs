@@ -11,5 +11,6 @@ namespace ProductivityApp.Data
         }
 
         public DbSet<TaskItem> Tasks { get; set; }
+        public DbSet<Habit> Habits { get; set; }
     }
 }
