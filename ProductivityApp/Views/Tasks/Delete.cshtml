@@ -1,0 +1,15 @@
+﻿@model ProductivityApp.Models.TaskItem
+
+<h2>Delete Task</h2>
+
+<h4>Are you sure?</h4>
+
+<div>
+    <strong>@Model.Title</strong>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

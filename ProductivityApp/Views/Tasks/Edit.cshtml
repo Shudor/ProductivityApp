@@ -1,0 +1,9 @@
+﻿@model ProductivityApp.Models.TaskItem
+
+<h2>Edit Task</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <partial name="Create" />
+</form>
