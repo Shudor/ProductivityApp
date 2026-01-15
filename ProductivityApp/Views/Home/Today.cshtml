@@ -1,0 +1,41 @@
+﻿@model ProductivityApp.ViewModels.DashboardViewModel
+
+<h2>Today</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Today's Tasks (@Model.CompletedTasks / @Model.TotalTasks)</h4>
+
+        <ul class="list-group">
+            @foreach (var task in Model.TodayTasks)
+            {
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>
+                        @(task.IsCompleted ? "✔️ " : "") @task.Title
+                    </span>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-6">
+        <h4>Habits</h4>
+
+        <ul class="list-group">
+            @foreach (var habit in Model.Habits)
+            {
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>
+                        @habit.Name (Streak: @habit.Streak)
+                    </span>
+                    <a asp-controller="Habits"
+                       asp-action="Complete"
+                       asp-route-id="@habit.Id"
+                       class="btn btn-success btn-sm">
+                        Done
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
