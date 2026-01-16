@@ -37,23 +37,29 @@ namespace ProductivityApp.Controllers
             var today = DateTime.Today;
             var tomorrow = today.AddDays(1);
 
-            var baseQuery = _context.Tasks
-                .Where(t => !t.IsCompleted && t.DueDate != null);
+            var todayTasksQuery = _context.Tasks
+                .Where(t =>
+                    t.DueDate >= today &&
+                    t.DueDate < tomorrow
+                );
 
             var vm = new DashboardViewModel
             {
-                TodayTasks = await baseQuery
-                    .Where(t => t.DueDate >= today && t.DueDate < tomorrow)
+                TodayTotalCount = await todayTasksQuery.CountAsync(),
+                TodayCompletedCount = await todayTasksQuery.CountAsync(t => t.IsCompleted),
+
+                TodayTasks = await todayTasksQuery
+                    .Where(t => !t.IsCompleted)
                     .OrderBy(t => t.DueDate)
                     .ToListAsync(),
 
-                UpcomingTasks = await baseQuery
-                    .Where(t => t.DueDate >= tomorrow)
+                UpcomingTasks = await _context.Tasks
+                    .Where(t => !t.IsCompleted && t.DueDate >= tomorrow)
                     .OrderBy(t => t.DueDate)
                     .ToListAsync(),
 
-                OverdueTasks = await baseQuery
-                    .Where(t => t.DueDate < today)
+                OverdueTasks = await _context.Tasks
+                    .Where(t => !t.IsCompleted && t.DueDate < today)
                     .OrderBy(t => t.DueDate)
                     .ToListAsync(),
 

@@ -11,17 +11,18 @@ namespace ProductivityApp.ViewModels
         public List<TaskItem> OverdueTasks { get; set; } = new();
         public List<Habit> Habits { get; set; } = new();
         public int TotalTasks => TodayTasks.Count;
-        public int TotalTodayTasks => TodayTasks.Count;
-        public int CompletedTodayTasks => TodayTasks.Count(t => t.IsCompleted);
         public int CompletedTasks => TodayTasks.Count(t => t.IsCompleted);
+        public int TodayTotalCount { get; set; }
+        public int TodayCompletedCount { get; set; }
+
         public int CompletionPercentage
         {
             get
             {
-                if (TotalTodayTasks == 0)
+                if (TodayTotalCount == 0)
                     return 0;
 
-                return (int)((CompletedTodayTasks / (double)TotalTodayTasks) * 100);
+                return (int)((TodayCompletedCount / (double)TodayTotalCount) * 100);
             }
         }
     }
