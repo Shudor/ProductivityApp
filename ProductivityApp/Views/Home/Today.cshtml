@@ -17,7 +17,22 @@
                 @foreach (var task in Model.TodayTasks)
                 {
                     <li class="list-group-item">
-                        @task.Title
+                        <form asp-controller="Tasks"
+                              asp-action="ToggleComplete"
+                              method="post"
+                              class="d-flex align-items-center">
+
+                            @Html.AntiForgeryToken()
+
+                            <input type="hidden" name="id" value="@task.Id" />
+                            <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
+
+                            <input type="checkbox"
+                                   class="form-check-input me-2"
+                                   onchange="this.form.submit()" />
+
+                            <span>@task.Title</span>
+                        </form>
                     </li>
                 }
             </ul>

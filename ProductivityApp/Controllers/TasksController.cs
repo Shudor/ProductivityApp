@@ -96,5 +96,23 @@ namespace ProductivityApp.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ToggleComplete(int id, string returnUrl = null)
+        {
+            var task = await _context.Tasks.FindAsync(id);
+
+            if (task == null)
+                return NotFound();
+
+            task.IsCompleted = !task.IsCompleted;
+            await _context.SaveChangesAsync();
+
+            if (!string.IsNullOrEmpty(returnUrl))
+                return Redirect(returnUrl);
+
+            return RedirectToAction("Index");
+        }
     }
 }
