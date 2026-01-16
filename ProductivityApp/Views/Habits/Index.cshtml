@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ProductivityApp.Models.Habit>
+
+<h2>Habits</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add Habit</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Streak</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var habit in Model)
+        {
+            <tr>
+                <td>@habit.Name</td>
+                <td>@habit.Streak</td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@habit.Id" />
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
