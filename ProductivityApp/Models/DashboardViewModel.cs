@@ -14,5 +14,15 @@ namespace ProductivityApp.ViewModels
         public int TotalTodayTasks => TodayTasks.Count;
         public int CompletedTodayTasks => TodayTasks.Count(t => t.IsCompleted);
         public int CompletedTasks => TodayTasks.Count(t => t.IsCompleted);
+        public int CompletionPercentage
+        {
+            get
+            {
+                if (TotalTodayTasks == 0)
+                    return 0;
+
+                return (int)((CompletedTodayTasks / (double)TotalTodayTasks) * 100);
+            }
+        }
     }
 }

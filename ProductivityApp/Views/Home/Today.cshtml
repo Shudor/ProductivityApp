@@ -2,6 +2,20 @@
 
 <h2 class="mb-4">Dashboard</h2>
 
+<div class="mb-4">
+    <h5>Today's progress</h5>
+    <div class="progress">
+        <div class="progress-bar"
+             role="progressbar"
+             style="width: @Model.CompletionPercentage%;"
+             aria-valuenow="@Model.CompletionPercentage"
+             aria-valuemin="0"
+             aria-valuemax="100">
+            @Model.CompletionPercentage%
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <!-- TODAY -->
     <div class="col-md-4">
