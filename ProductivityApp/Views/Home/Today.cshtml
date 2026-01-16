@@ -1,6 +1,16 @@
 ﻿@model ProductivityApp.ViewModels.DashboardViewModel
 
-<h2 class="mb-4">Dashboard</h2>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+    </h2>
+
+    <button id="themeToggle"
+            class="btn btn-outline-secondary"
+            title="Toggle dark mode">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+</div>
 
 <div class="mb-4">
     <h5>Today's progress</h5>
@@ -21,7 +31,7 @@
     <div class="col-md-4">
         <div class="card mb-3">
             <div class="card-header bg-primary text-white">
-                Today (@Model.TodayTasks.Count)
+                <i class="fa-solid fa-list-check"></i> Today (@Model.TodayTasks.Count)
             </div>
             <ul class="list-group list-group-flush">
                 @if (!Model.TodayTasks.Any())
@@ -52,12 +62,12 @@
             </ul>
         </div>
     </div>
-
+    
     <!-- UPCOMING -->
     <div class="col-md-4">
         <div class="card mb-3">
             <div class="card-header bg-success text-white">
-                Upcoming (@Model.UpcomingTasks.Count)
+                <i class="fa-solid fa-calendar-days"></i> Upcoming (@Model.UpcomingTasks.Count)
             </div>
             <ul class="list-group list-group-flush">
                 @if (!Model.UpcomingTasks.Any())
@@ -68,7 +78,7 @@
                 {
                     <li class="list-group-item">
                         @task.Title
-                        <small class="text-muted">
+                        <small class="task-date">
                             (@task.DueDate?.ToString("dd.MM"))
                         </small>
                     </li>
@@ -76,12 +86,12 @@
             </ul>
         </div>
     </div>
-
+    
     <!-- OVERDUE -->
     <div class="col-md-4">
         <div class="card mb-3 border-danger">
             <div class="card-header bg-danger text-white">
-                Overdue (@Model.OverdueTasks.Count)
+                <i class="fa-solid fa-triangle-exclamation"></i> Overdue (@Model.OverdueTasks.Count)
             </div>
             <ul class="list-group list-group-flush">
                 @if (!Model.OverdueTasks.Any())
@@ -104,7 +114,7 @@
 
 <hr />
 
-<h4>Habits</h4>
+<h4><i class="fa-solid fa-fire"></i> Habits</h4>
 
 <ul class="list-group">
     @foreach (var habit in Model.Habits)
@@ -126,7 +136,9 @@
             }
             else
             {
-                <span class="text-success fw-bold">✔ Done today</span>
+                <span class="badge bg-success">
+                    <i class="fa-solid fa-check"></i> Done today
+                </span>
             }
         </li>
     }
