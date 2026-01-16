@@ -1,126 +1,91 @@
-# ProductivityApp
+Productivity Dashboard (ASP.NET Core MVC)
 
-Personal Productivity web application built with ASP.NET Core MVC.
-The app allows users to manage tasks and track daily productivity while demonstrating clean MVC architecture, Entity Framework Core, and Git best practices.
+A simple but production-style productivity web application built with ASP.NET Core MVC and Entity Framework Core.
 
----
+The app focuses on daily task management and habit tracking, with a clean dashboard that visualizes progress and priorities.
 
 ✨ Features
+📊 Dashboard
 
-* ✅ Create, edit, delete tasks (CRUD)
-* 📅 Due dates and task status (Pending / Done)
-* 🗂️ Clean MVC structure (Models, Views, Controllers)
-* 🗄️ SQLite database with Entity Framework Core
-* 🔐 Ready for future authentication & extensions
+Today / Upcoming / Overdue task sections
 
----
+Inline task completion using checkboxes
+
+Animated daily progress bar
+
+Clear visual prioritization
+
+✅ Tasks
+
+Create, edit, delete tasks
+
+Due date support
+
+Mark tasks as completed directly from dashboard
+
+🔁 Habits
+
+Habit list with streak tracking
+
+One-click daily completion
+
+🧠 Smart Logic
+
+SQLite-safe date filtering (range-based queries)
+
+Progress calculated from source-of-truth data
+
+Clean separation using ViewModels
 
 🛠️ Tech Stack
 
-* **C#**
-* **ASP.NET Core MVC** (.NET 7/8)
-* **Entity Framework Core**
-* **SQLite**
-* **Razor Views**
-* **Bootstrap**
+ASP.NET Core MVC
 
----
+Entity Framework Core
 
-📂 Project Structure
+SQLite
 
-```
-ProductivityApp
-│
-├── Controllers
-│   └── TasksController.cs
-├── Models
-│   └── TaskItem.cs
-├── Data
-│   └── AppDbContext.cs
-├── Views
-│   └── Tasks
-│       ├── Index.cshtml
-│       ├── Create.cshtml
-│       ├── Edit.cshtml
-│       └── Delete.cshtml
-├── Migrations
-├── wwwroot
-└── Program.cs
-```
+Bootstrap 5
 
----
-
-▶️ Getting Started
-
-Prerequisites
-
-* .NET SDK 7 or 8
-* Visual Studio 2022
-
-Run Locally
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/Shudor/ProductivityApp.git
-   ```
-
-2. Open the solution in **Visual Studio**
-
-3. Restore NuGet packages
-
-4. Apply database migrations:
-
-   ```bash
-   dotnet ef database update
-   ```
-
-5. Run the application (F5)
-
-6. Open in browser:
-
-   ```
-   https://localhost:xxxx/Tasks
-   ```
-
----
-
-🧠 What I Practiced
-
-* ASP.NET Core MVC fundamentals
-* Entity Framework Core & migrations
-* Dependency Injection
-* Razor syntax & model binding
-* Git & GitHub workflow
-
----
-
-🚀 Future Improvements
-
-* Habit tracker with streak counter
-* Dashboard view (Today / This Week)
-* User authentication (ASP.NET Identity)
-* REST API + frontend (React / Blazor)
-* UI/UX improvements
-
----
+Razor Views
 
 📸 Screenshots
 
-*(Add screenshots here once UI is polished)*
+Dashboard overview
 
----
+Task progress visualization
 
-📄 License
 
-This project is licensed under the **MIT License**.
 
----
+
+🚀 Getting Started
+git clone https://github.com/Shudor/productivity-dashboard.git
+cd productivity-dashboard
+dotnet restore
+dotnet ef database update
+dotnet run
+
+Open browser at:
+
+https://localhost:5001
+🧪 Lessons Learned
+
+Handling DateTime correctly with SQLite and EF Core
+
+Avoiding logic coupling between UI filters and statistics
+
+Building interactive UX with pure MVC and minimal JavaScript
+
+📌 Future Improvements
+
+User authentication (ASP.NET Identity)
+
+Weekly/monthly statistics
+
+API layer for SPA or mobile frontend
 
 👤 Author
 
-Built as a learning & portfolio project to refresh C# and ASP.NET Core skills.
+Built as a portfolio project to demonstrate practical ASP.NET Core MVC skills.
 
----
-
-⭐ If you find this project useful, feel free to star the repository!
+⭐ If you like this project, feel free to star the repository!
