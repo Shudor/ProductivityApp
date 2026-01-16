@@ -1,91 +1,99 @@
-Productivity Dashboard (ASP.NET Core MVC)
+# Productivity Dashboard (ASP.NET Core MVC)
 
-A simple but production-style productivity web application built with ASP.NET Core MVC and Entity Framework Core.
+A simple but production-style productivity web application built with **ASP.NET Core MVC** and **Entity Framework Core**.
 
-The app focuses on daily task management and habit tracking, with a clean dashboard that visualizes progress and priorities.
+The app focuses on **daily task management and habit tracking**, with a clean dashboard that visualizes progress and priorities.
 
-✨ Features
-📊 Dashboard
+---
 
-Today / Upcoming / Overdue task sections
+## ✨ Features
 
-Inline task completion using checkboxes
+### 📊 Dashboard
 
-Animated daily progress bar
+* **Today / Upcoming / Overdue** task sections
+* Inline task completion using checkboxes
+* Animated daily progress bar
+* Clear visual prioritization
 
-Clear visual prioritization
+### ✅ Tasks
 
-✅ Tasks
+* Create, edit, delete tasks
+* Due date support
+* Mark tasks as completed directly from dashboard
 
-Create, edit, delete tasks
+### 🔁 Habits
 
-Due date support
+* Habit list with streak tracking
+* One-click daily completion
 
-Mark tasks as completed directly from dashboard
+### 🧠 Smart Logic
 
-🔁 Habits
+* SQLite-safe date filtering (range-based queries)
+* Progress calculated from source-of-truth data
+* Clean separation using ViewModels
 
-Habit list with streak tracking
+---
 
-One-click daily completion
+## 🛠️ Tech Stack
 
-🧠 Smart Logic
+* **ASP.NET Core MVC**
+* **Entity Framework Core**
+* **SQLite**
+* **Bootstrap 5**
+* **Razor Views**
 
-SQLite-safe date filtering (range-based queries)
+---
 
-Progress calculated from source-of-truth data
+## 📸 Screenshots
 
-Clean separation using ViewModels
+> Dashboard overview
 
-🛠️ Tech Stack
+![Dashboard](screenshots/dashboard.png)
 
-ASP.NET Core MVC
+> Task progress visualization
 
-Entity Framework Core
+![Progress Bar](screenshots/progress.png)
 
-SQLite
+---
 
-Bootstrap 5
+## 🚀 Getting Started
 
-Razor Views
-
-📸 Screenshots
-
-Dashboard overview
-
-Task progress visualization
-
-
-
-
-🚀 Getting Started
+```bash
 git clone https://github.com/Shudor/productivity-dashboard.git
 cd productivity-dashboard
 dotnet restore
 dotnet ef database update
 dotnet run
+```
 
 Open browser at:
 
+```
 https://localhost:5001
-🧪 Lessons Learned
+```
 
-Handling DateTime correctly with SQLite and EF Core
+---
 
-Avoiding logic coupling between UI filters and statistics
+## 🧪 Lessons Learned
 
-Building interactive UX with pure MVC and minimal JavaScript
+* Handling DateTime correctly with SQLite and EF Core
+* Avoiding logic coupling between UI filters and statistics
+* Building interactive UX with pure MVC and minimal JavaScript
 
-📌 Future Improvements
+---
 
-User authentication (ASP.NET Identity)
+## 📌 Future Improvements
 
-Weekly/monthly statistics
+* User authentication (ASP.NET Identity)
+* Weekly/monthly statistics
+* API layer for SPA or mobile frontend
 
-API layer for SPA or mobile frontend
+---
 
-👤 Author
+## 👤 Author
 
-Built as a portfolio project to demonstrate practical ASP.NET Core MVC skills.
+Built as a **portfolio project** to demonstrate practical ASP.NET Core MVC skills.
+
+---
 
 ⭐ If you like this project, feel free to star the repository!
