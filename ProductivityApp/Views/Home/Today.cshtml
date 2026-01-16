@@ -113,6 +113,7 @@
             <a asp-controller="Habits"
                asp-action="Complete"
                asp-route-id="@habit.Id"
+               asp-route-returnUrl="@Context.Request.Path"
                class="btn btn-sm btn-success">
                 Done
             </a>

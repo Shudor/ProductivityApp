@@ -51,4 +51,35 @@ public class HabitsController : Controller
 
         return RedirectToAction(nameof(Index));
     }
+
+    public async Task<IActionResult> Complete(int id, string returnUrl = null)
+    {
+        var habit = await _context.Habits.FindAsync(id);
+        if (habit == null)
+            return NotFound();
+
+        var today = DateTime.Today;
+
+        // Ako je već označena danas – ne radi ništa
+        if (habit.LastCompletedDate == today)
+        {
+            return !string.IsNullOrEmpty(returnUrl)
+                ? Redirect(returnUrl)
+                : RedirectToAction(nameof(Index));
+        }
+
+        // Streak logika
+        if (habit.LastCompletedDate == today.AddDays(-1))
+            habit.Streak++;
+        else
+            habit.Streak = 1;
+
+        habit.LastCompletedDate = today;
+
+        await _context.SaveChangesAsync();
+
+        return !string.IsNullOrEmpty(returnUrl)
+            ? Redirect(returnUrl)
+            : RedirectToAction(nameof(Index));
+    }
 }
