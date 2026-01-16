@@ -82,4 +82,29 @@ public class HabitsController : Controller
             ? Redirect(returnUrl)
             : RedirectToAction(nameof(Index));
     }
+
+    public async Task<IActionResult> Edit(int id)
+    {
+        var habit = await _context.Habits.FindAsync(id);
+        if (habit == null)
+            return NotFound();
+
+        return View(habit);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, Habit habit)
+    {
+        if (id != habit.Id)
+            return BadRequest();
+
+        if (!ModelState.IsValid)
+            return View(habit);
+
+        _context.Update(habit);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
+    }
 }

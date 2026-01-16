@@ -9,7 +9,7 @@
         <tr>
             <th>Name</th>
             <th>Streak</th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -17,9 +17,31 @@
         {
             <tr>
                 <td>@habit.Name</td>
-                <td>@habit.Streak</td>
+                <td>🔥 @habit.Streak</td>
                 <td>
-                    <form asp-action="Delete" method="post">
+                    <a asp-action="Edit"
+                       asp-route-id="@habit.Id"
+                       class="btn btn-sm btn-warning me-1">
+                        Edit
+                    </a>
+
+                    @if (habit.LastCompletedDate != DateTime.Today)
+                    {
+                        <a asp-action="Complete"
+                           asp-route-id="@habit.Id"
+                           asp-route-returnUrl="@Context.Request.Path"
+                           class="btn btn-sm btn-success me-1">
+                            Done
+                        </a>
+                    }
+                    else
+                    {
+                        <span class="text-success fw-bold me-2">✔ Done today</span>
+                    }
+
+                    <form asp-action="Delete"
+                          method="post"
+                          class="d-inline">
                         @Html.AntiForgeryToken()
                         <input type="hidden" name="id" value="@habit.Id" />
                         <button class="btn btn-sm btn-danger">Delete</button>
