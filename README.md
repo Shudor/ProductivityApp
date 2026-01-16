@@ -46,13 +46,17 @@ The app focuses on **daily task management and habit tracking**, with a clean da
 
 ## 📸 Screenshots
 
-> Dashboard overview
+> Dashboard (Light mode)
 
 ![Dashboard](screenshots/dashboard.png)
 
 > Task progress visualization
 
 ![Progress Bar](screenshots/progress.png)
+
+> Dashboard (Dark mode)
+
+![Dashboard Dark](screenshots/dashboard-dark.png)
 
 ---
 
